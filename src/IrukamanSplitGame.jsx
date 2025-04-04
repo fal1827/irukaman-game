@@ -20,7 +20,6 @@ const IrukamanGame = () => {
   const [みぎ, setみぎ] = useState(0);
   const [けっか, setけっか] = useState("");
   const [みつけた, setみつけた] = useState(new Set());
-  const [bgm] = useState(() => new Audio("/05.wav"));
   const [エフェクト中, setエフェクト中] = useState(false);
   const [えらばれたこ, setえらばれたこ] = useState(null);
   const [おんがく, setおんがく] = useState(true);
@@ -30,6 +29,12 @@ const IrukamanGame = () => {
   const のこり = ぜんぶ - ひだり - みぎ;
   const こたえのかず = ぜんぶ + 1;
   const ぜんぶできた = みつけた.size === こたえのかず;
+
+  const [bgm] = useState(() => {
+    const audio = new Audio("/05.wav");
+    audio.volume = 0.05;  // ✅ 初期化時に音量設定！
+    return audio;
+  });  
 
   const こたえあわせ = () => {
     if (ひだり + みぎ !== ぜんぶ) {
@@ -113,7 +118,8 @@ const IrukamanGame = () => {
 
     const はじめてのクリック = () => {
       bgm.loop = true;
-      bgm.volume = 0.4;
+      bgm.currentTime = 0; // ✅ クリック後の再生位置リセット
+      bgm.volume = 0.05;
       bgm.play();
       window.removeEventListener("click", はじめてのクリック);
     };
