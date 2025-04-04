@@ -141,7 +141,7 @@ const IrukamanGame = () => {
           <h1 className="text-4xl font-bold text-blue-800 mb-6 drop-shadow">
             🐬 いるかまんの わけっこゲーム
           </h1>
-          <img src="/irukaman.png" alt="イルカマン" className="w-32 mb-6 animate-bounce" />
+          <img src="/irukaman.png" alt="イルカマン" className="w-24 sm:w-32 mb-6 animate-bounce" />
           <button
             onClick={() => setスタートした(true)}
             className="px-6 py-3 bg-green-400 hover:bg-green-500 text-white rounded-xl text-lg font-bold shadow-lg"
@@ -153,7 +153,7 @@ const IrukamanGame = () => {
 
       {スタートした && (
         <div className="min-h-screen bg-wave bg-cyan-50">
-          <div className="flex justify-center items-start gap-6 w-full max-w-5xl mx-auto px-4">
+          <div className="flex flex-col lg:flex-row justify-center items-start gap-6 w-full max-w-5xl mx-auto px-4">
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-xl flex flex-col items-center text-center gap-1">
               <h1 className="text-2xl font-bold mb-3">イルカマンの わけっこゲーム</h1>
               <p className="mb-1">
@@ -162,7 +162,7 @@ const IrukamanGame = () => {
               </p>
 
               <div
-                className="grid grid-cols-5 gap-2 justify-items-center w-[400px] min-h-[140px] mx-auto mb-2"
+                className="grid grid-cols-4 sm:grid-cols-5 gap-2 justify-items-center w-full max-w-md min-h-[140px] mx-auto mb-2"
               >
                 {[...Array(のこり)].map((_, i) => (
                   <img
@@ -190,7 +190,7 @@ const IrukamanGame = () => {
                         ドロップ(side);
                         setえらばれたこ(null);
                       }}
-                      className="mt-4 p-2 border-4 border-blue-300 bg-gradient-to-t from-blue-300 to-blue-100 rounded-xl w-28 h-28 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:ring-4 hover:ring-yellow-300 transition"
+                      className="mt-4 p-2 border-4 border-blue-300 bg-gradient-to-t from-blue-300 to-blue-100 rounded-xl w-24 h-24 sm:w-28 sm:h-28 flex flex-col items-center justify-center shadow-lg cursor-pointer hover:ring-4 hover:ring-yellow-300 transition"
                     >
                       <p className="text-2xl font-bold">{すうじ}</p>
                       <p className="text-sm">{side}のうみ</p>
@@ -226,11 +226,11 @@ const IrukamanGame = () => {
 
             <div className="flex flex-col items-center">
 
-              <div className="w-40 bg-yellow-100 text-center rounded-xl p-2 shadow font-bold text-blue-800 mb-4 border border-yellow-300">
+              <div className="w-full max-w-xs bg-yellow-100 text-center rounded-xl p-2 shadow font-bold text-blue-800 mb-4 border border-yellow-300">
                 スコア：{スコア} てん
               </div>
 
-              <div className="w-40 max-h-[400px] overflow-auto p-3 bg-white rounded-xl shadow-md text-sm border border-blue-200">
+              <div className="w-full max-w-xs max-h-[400px] overflow-auto p-3 bg-white rounded-xl shadow-md text-sm border border-blue-200">
                 <p className="font-bold mb-2 text-blue-800">みつけた わけかた：</p>
                 <ul className="space-y-1">
                   {[...みつけた].map((k) => (
